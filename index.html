@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte Metal | Coberturas e Pergolados</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS - ESTILOS DO SITE --- */
+        :root {
+            --cor-primaria: #1a1a1a; /* Preto quase total */
+            --cor-secundaria: #f4f4f4; /* Cinza claro para fundos */
+            --cor-destaque: #d4af37; /* Um tom dourado metálico para botões */
+            --cor-texto: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--cor-texto);
+            background-color: var(--cor-secundaria);
+        }
+
+        /* Utilitários */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Pequeno detalhe abaixo dos títulos */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--cor-destaque);
+            margin: 10px auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--cor-destaque);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b8962e;
+        }
+
+        /* --- CABEÇALHO E NAVEGAÇÃO --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-img {
+            height: 60px; /* Ajuste o tamanho da logo aqui */
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cor-primaria);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* --- SEÇÃO HERO (BANNER PRINCIPAL) --- */
+        #hero {
+            /* Usando image_3.png como fundo do banner, pois está bem finalizada */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image_3.png') no-repeat center center/cover;
+            height: 85vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- SOBRE NÓS (Simples) --- */
+        #sobre {
+            background-color: white;
+            text-align: center;
+        }
+        #sobre p {
+             max-width: 800px;
+             margin: auto;
+             font-size: 1.1rem;
+        }
+
+        /* --- PORTFÓLIO (GALERIA) --- */
+        #portfolio {
+            background-color: var(--cor-secundaria);
+        }
+
+        .gallery-grid {
+            display: grid;
+            /* Cria colunas automaticamente, mínimo de 300px de largura */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 250px; /* Altura fixa para padronizar */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem preencher o quadrado sem distorcer */
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); /* Zoom suave ao passar o mouse */
+        }
+        
+        /* Legenda opcional nas imagens */
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            text-align: center;
+        }
+         .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+
+        /* --- CONTATO & RODAPÉ --- */
+        #contato {
+            background-color: var(--cor-primaria);
+            color: white;
+            text-align: center;
+        }
+        #contato h2 { color: white; }
+        
+        .contact-info p {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px
